@@ -1,14 +1,10 @@
-// one round game function
-// Game played from the console against a CPU
-// It asks the user to type their selection, rock, paper or scissors (case insensitive)
-
-let playerSelection = prompt("What are you choosing? Rock, paper or scissors?").toLowerCase();
-let randomNumber = getRandomNumber(1,3);
-let computerSelection = translateNumberToChoice();
+let playerSelection;
+let randomNumber;
+let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
-function translateNumberToChoice(){
+function translateNumberToChoice(randomNumber){
     if (randomNumber === 1){
         return "rock";
     }
@@ -27,42 +23,55 @@ function oneRound(playerSelection, computerSelection) {
         return `It's a tie! You both chose ${playerSelection}.`;
     }
     else if (playerSelection === "rock" && computerSelection === "paper"){
-        computerScore = computerScore++;
+        computerScore++;
         return "You lost! Rock loses to paper.";
     }
     else if (playerSelection === "rock" && computerSelection === "scissors"){
-        playerScore = playerScore++;
+        playerScore++;
         return "You won! Rock beats scissors.";
     }
     else if (playerSelection === "paper" && computerSelection === "rock"){
-        playerScore = playerScore++;
+        playerScore++;
         return "You won! Paper beats rock.";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors"){
-        computerScore = computerScore++;
+        computerScore++;
         return "You lost! Paper loses to scissors.";
     }
     else if (playerSelection === "scissors" && computerSelection === "paper"){
-        playerScore = playerScore++;
+        playerScore++;
         return "You won! Scissors beats paper.";
     }
     else if (playerSelection === "scissors" && computerSelection === "rock"){
-        computerScore = computerScore++;
+        computerScore++;
         return "You lost! Scissors loses to rock.";
     }
     else {return "Type a valid choice!"};
 };
 
-Results = `Player: ${playerScore} | Computer: ${computerScore}`
+function game(){
+    if (playerScore < 3 && computerScore <3){
+        let playerSelection = prompt("What are you choosing? Rock, paper or scissors?").toLowerCase();
+        let randomNumber = getRandomNumber(1,3);
+        let computerSelection = translateNumberToChoice(randomNumber);
+        alert(oneRound(playerSelection,computerSelection));
+        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+    }
+    else if (playerScore === 3){
+        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+        alert("You won!");
+    } 
+    else if (computerScore === 3){
+        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+        alert("You lost!");
+    }
+}
 
-alert(oneRound(playerSelection,computerSelection));
-alert(Results);
-
-
-
-// randomNumber = getRandomNumber(1,3);
-// computerSelection = translateNumberToChoice()
-// console.log(computerSelection);
-
-
-
+game();
+game();
+game();
+game();
+game();
+game();
+game();
+game();
