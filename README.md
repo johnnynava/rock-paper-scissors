@@ -1,1 +1,1 @@
-# rock-papers-scissors
+Simple Rock, Papers, Scissors game made from scratch for The Odin Project
