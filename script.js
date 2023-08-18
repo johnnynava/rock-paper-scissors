@@ -49,20 +49,37 @@ function oneRound(playerSelection, computerSelection) {
     else {return "Type a valid choice!"};
 };
 
-// function game(){
-//     if (playerScore < 3 && computerScore <3){
-//         let playerSelection = prompt("What are you choosing? Rock, paper or scissors?").toLowerCase();
-//         let randomNumber = getRandomNumber(1,3);
-//         let computerSelection = translateNumberToChoice(randomNumber);
-//         alert(oneRound(playerSelection,computerSelection));
-//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-//     }
-//     else if (playerScore === 3){
-//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-//         alert("You won!");
-//     } 
-//     else if (computerScore === 3){
-//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-//         alert("You lost!");
-//     }
-// }
+function game(){
+    let playerSelections = document.querySelectorAll("button");
+    const scoreboard = document.querySelector("div.scoreboard");
+    const temp = document.querySelector("div.temp");
+    const result = document.querySelector("div.result");
+    const body = document.querySelector("body");
+    const reset = document.createElement("p");
+    reset.textContent = "Refresh to reset";
+    playerSelections.forEach(selection => 
+        selection.addEventListener("click", function(e){
+            if (playerScore < 5 && computerScore < 5){
+                let playerSelection = e.target.innerText.toLowerCase();
+                let randomNumber = getRandomNumber(1,3);
+                let computerSelection = translateNumberToChoice(randomNumber);
+                temp.textContent = oneRound(playerSelection,computerSelection);
+                let totalScore = `Player: ${playerScore} | CPU: ${computerScore}`;
+                scoreboard.textContent = totalScore;
+                if (playerScore === 5){
+                    result.textContent = "You won!";
+                    body.appendChild(reset);
+                    return;
+                }
+                else if (computerScore === 5){
+                    result.textContent = "The computer won.";
+                    body.appendChild(reset);
+                    return;
+                }
+            }
+            else return;
+    }))
+    ;
+};
+
+game();
