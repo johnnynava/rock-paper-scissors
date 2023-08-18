@@ -49,29 +49,20 @@ function oneRound(playerSelection, computerSelection) {
     else {return "Type a valid choice!"};
 };
 
-function game(){
-    if (playerScore < 3 && computerScore <3){
-        let playerSelection = prompt("What are you choosing? Rock, paper or scissors?").toLowerCase();
-        let randomNumber = getRandomNumber(1,3);
-        let computerSelection = translateNumberToChoice(randomNumber);
-        alert(oneRound(playerSelection,computerSelection));
-        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-    }
-    else if (playerScore === 3){
-        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-        alert("You won!");
-    } 
-    else if (computerScore === 3){
-        alert(`Player: ${playerScore} | Computer: ${computerScore}`);
-        alert("You lost!");
-    }
-}
-
-game();
-game();
-game();
-game();
-game();
-game();
-game();
-game();
+// function game(){
+//     if (playerScore < 3 && computerScore <3){
+//         let playerSelection = prompt("What are you choosing? Rock, paper or scissors?").toLowerCase();
+//         let randomNumber = getRandomNumber(1,3);
+//         let computerSelection = translateNumberToChoice(randomNumber);
+//         alert(oneRound(playerSelection,computerSelection));
+//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+//     }
+//     else if (playerScore === 3){
+//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+//         alert("You won!");
+//     } 
+//     else if (computerScore === 3){
+//         alert(`Player: ${playerScore} | Computer: ${computerScore}`);
+//         alert("You lost!");
+//     }
+// }
