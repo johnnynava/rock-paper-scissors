@@ -67,12 +67,12 @@ function game(){
                 let totalScore = `Player: ${playerScore} | CPU: ${computerScore}`;
                 scoreboard.textContent = totalScore;
                 if (playerScore === 5){
-                    result.textContent = "You won!";
+                    result.textContent = "You won the game, congrats!";
                     body.appendChild(reset);
                     return;
                 }
                 else if (computerScore === 5){
-                    result.textContent = "The computer won.";
+                    result.textContent = "The computer won. Try again.";
                     body.appendChild(reset);
                     return;
                 }
